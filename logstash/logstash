@@ -1,0 +1,59 @@
+#!/bin/sh
+
+sed -i "s/^path\.logs.*$/path\.logs\: \/var\/log\/logstash\/$HOSTNAME/" /etc/logstash/logstash.yml
+
+
+mkdir -p /var/log/logstash/$HOSTNAME/
+chmod 775 /var/log/logstash/$HOSTNAME/
+chown -R logstash:root /var/log/logstash/$HOSTNAME/
+
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+export PATH
+
+name=logstash
+program=/usr/share/logstash/bin/logstash
+args=--path.settings\ /etc/logstash
+pidfile="/var/run/$name.pid"
+user="logstash"
+group="logstash"
+chroot="/"
+chdir="/"
+nice="19"
+limit_open_files="16384"
+
+KILL_ON_STOP_TIMEOUT=0
+
+set -a
+[ -r /etc/default/logstash ] && . /etc/default/logstash
+[ -r /etc/sysconfig/logstash ] && . /etc/sysconfig/logstash
+set +a
+
+[ -z "$nice" ] && nice=0
+
+trace() {
+  logger -t "/etc/init.d/logstash" "$@"
+}
+
+emit() {
+  trace "$@"
+  echo "$@"
+}
+
+# Ensure the log directory is setup correctly.
+if [ ! -d "/var/log" ]; then
+  mkdir "/var/log"
+  chown "$user":"$group" "/var/log"
+  chmod 755 "/var/log"
+fi
+
+ulimit -n ${limit_open_files}
+
+mkdir -p /var/log/logstash/${HOSTNAME}
+nice -n "$nice" \
+chroot --userspec "$user":"$group" "$chroot" sh -c "
+  ulimit -n ${limit_open_files}
+  cd \"$chdir\"
+  exec \"$program\" $args
+"
+
