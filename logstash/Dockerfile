@@ -31,7 +31,10 @@ sed -i 's/# Run the program!/mkdir -p \/var\/log\/logstash\/$\{HOSTNAME\}/' /etc
 sed -i 's/logstash\/gc/logstash\/${HOSTNAME}\/gc/' /etc/default/logstash &&\
 sed -i 's/-Xmx1g//' /etc/logstash/jvm.options &&\
 sed -i 's/-Xms1g//' /etc/logstash/jvm.options &&\
-sed -i '/parse_jvm_options() {/a\echo " -Xmx${MEM_SIZE:-1024}m -Xms${MEM_SIZE:-1024}m "' /usr/share/logstash/bin/logstash.lib.sh
+sed -i '/parse_jvm_options() {/a\echo " -Xmx${MEM_SIZE:-1024}m -Xms${MEM_SIZE:-1024}m "' /usr/share/logstash/bin/logstash.lib.sh &&\
+mkdir -p /etc/logstash/pipeline_config/ &&\
+mv /etc/logstash/pipelines.yml /etc/logstash/pipeline_config/ &&\
+ln -s /etc/logstash/pipeline_config/pipelines.yml /etc/logstash/
 COPY logstash /usr/local/bin/logstash
 RUN chmod a+x /usr/local/bin/logstash && chmod a+r /usr/local/bin/logstash 
 CMD /usr/local/bin/logstash
