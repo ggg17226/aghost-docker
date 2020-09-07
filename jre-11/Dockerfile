@@ -1,4 +1,4 @@
-from ubuntu:bionic-20200630
+from ubuntu:bionic-20200807
 MAINTAINER agh0st <ggg17226@gmail.com>
 run echo "deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse" > /etc/apt/sources.list &&\
 echo "deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse" >> /etc/apt/sources.list &&\
