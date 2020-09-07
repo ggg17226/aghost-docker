@@ -1,4 +1,4 @@
-from ubuntu:bionic-20200630
+from ubuntu:bionic-20200807
 run echo "deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse" > /etc/apt/sources.list &&\
 echo "deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse" >> /etc/apt/sources.list &&\
 echo "deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse" >> /etc/apt/sources.list &&\
@@ -13,4 +13,5 @@ apt-get install -f &&\
 apt-get autoremove -y &&\
 apt-get autoclean &&\
 pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip && rm -rf /root/.cache/pip &&\
-pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple &&\
+python3 --version
