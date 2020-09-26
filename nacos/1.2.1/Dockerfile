@@ -16,6 +16,7 @@ echo ${HOSTNAME} >> /nacos/conf/cluster.conf ;\
 --spring.config.location=classpath:/,classpath:/config/,file:./,file:./config/,file:/nacos/conf/ \
 --logging.config=/nacos/conf/nacos-logback.xml \
 --server.max-http-header-size=524288 \
-${EXT_NACOS_CMD:---nacos.logs.path=/nacos/logs/${HOSTNAME}/}
+${NACOS_LOG_CMD:---nacos.logs.path=/nacos/logs/${HOSTNAME}/} \
+${EXT_NACOS_CMD}
 
 
