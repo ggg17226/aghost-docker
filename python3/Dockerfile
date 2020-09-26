@@ -1,5 +1,6 @@
 FROM agh0st/ubuntu:bionic-20200927
-RUN apt-get install -y ython3 python3-pip python3-setuptools &&\
+RUN apt-get update &&\
+apt-get install -y ython3 python3-pip python3-setuptools &&\
 apt-get install -f &&\
 apt-get autoremove -y &&\
 apt-get autoclean &&\
