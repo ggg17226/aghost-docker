@@ -1,4 +1,4 @@
-FROM agh0st/ubuntu:bionic-20200927
+FROM agh0st/ubuntu:bionic-20201019
 RUN apt-get update &&\
 apt-get install -y python3 python3-pip python3-setuptools gcc g++ make cmake build-essential &&\
 apt-get install -f &&\
