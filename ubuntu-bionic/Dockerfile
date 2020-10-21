@@ -17,7 +17,7 @@ apt-get upgrade -y &&\
 env DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata &&\
 ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &&\
 dpkg-reconfigure --frontend noninteractive tzdata &&\
-apt-get install -y vim htop net-tools psmisc wget curl git ca-certificates apt-utils &&\
+apt-get install -y vim htop net-tools psmisc wget curl git ca-certificates apt-utils libhugetlbfs-dev &&\
 apt-get install -f &&\
 apt-get autoremove -y &&\
 apt-get autoclean 
