@@ -1,4 +1,4 @@
-from ubuntu:bionic-20200807
+FROM ubuntu:bionic-20201112
 MAINTAINER agh0st <ggg17226@gmail.com>
 COPY es-gpg-key /tmp/es-gpg-key
 RUN echo "deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse" > /etc/apt/sources.list &&\
