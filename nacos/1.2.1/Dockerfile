@@ -1,4 +1,4 @@
-FROM agh0st/jdk:11.0.8b10-openjdk
+FROM agh0st/jdk:11.0.9b11-20201112
 RUN mkdir -p /nacos/conf && mkdir -p /nacos/heap_dump/ && mkdir -p /nacos/logs/ && mkdir -p /nacos/plugins/
 copy nacos-server.jar /nacos/
 CMD cd /nacos;\
