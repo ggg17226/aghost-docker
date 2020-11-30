@@ -17,9 +17,14 @@ apt-get upgrade -y &&\
 env DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata &&\
 ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &&\
 dpkg-reconfigure --frontend noninteractive tzdata &&\
-echo "LANG=C.UTF-8" > /etc/default/locale &&\
-apt-get install -y vim htop net-tools psmisc wget curl git ca-certificates apt-utils libhugetlbfs-dev language-pack-zh-hans &&\
+echo "LANG=en_US.UTF-8" > /etc/default/locale &&\
+apt-get install -y vim htop net-tools psmisc wget curl git ca-certificates apt-utils libhugetlbfs-dev language-pack-zh-hans locales &&\
 apt-get install -f &&\
+sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen &&\
+locale-gen &&\
 update-locale &&\
 apt-get autoremove -y &&\
 apt-get autoclean 
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
