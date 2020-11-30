@@ -1,4 +1,4 @@
-FROM ubuntu:bionic-20200921
+FROM ubuntu:bionic-20201119
 MAINTAINER agh0st <ggg17226@gmail.com>
 RUN \
 bash -c "if [ `arch` == x86_64 ]; then \
@@ -17,7 +17,9 @@ apt-get upgrade -y &&\
 env DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata &&\
 ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &&\
 dpkg-reconfigure --frontend noninteractive tzdata &&\
-apt-get install -y vim htop net-tools psmisc wget curl git ca-certificates apt-utils libhugetlbfs-dev &&\
+echo "LANG=C.UTF-8" > /etc/default/locale &&\
+apt-get install -y vim htop net-tools psmisc wget curl git ca-certificates apt-utils libhugetlbfs-dev language-pack-zh-hans &&\
 apt-get install -f &&\
+update-locale &&\
 apt-get autoremove -y &&\
 apt-get autoclean 
