@@ -2,15 +2,15 @@ FROM ubuntu:bionic-20201119
 MAINTAINER agh0st <ggg17226@gmail.com>
 RUN \
 bash -c "if [ `arch` == x86_64 ]; then \
-echo \"deb [trusted=yes] http://192.168.27.101/ubuntu/ bionic main restricted universe multiverse\" > /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://192.168.27.101/ubuntu/ bionic-updates main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://192.168.27.101/ubuntu/ bionic-backports main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://192.168.27.101/ubuntu/ bionic-security main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse\" > /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse\" >> /etc/apt/sources.list ;\
 elif [ `arch` == aarch64 ]; then \
-echo \"deb [trusted=yes] http://192.168.27.101/ubuntu-ports/ bionic main restricted universe multiverse\" > /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://192.168.27.101/ubuntu-ports/ bionic-updates main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://192.168.27.101/ubuntu-ports/ bionic-backports main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://192.168.27.101/ubuntu-ports/ bionic-security main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse\" > /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse\" >> /etc/apt/sources.list ;\
 fi ";\
 apt-get update &&\
 apt-get upgrade -y &&\
@@ -24,18 +24,7 @@ sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen &&\
 locale-gen &&\
 update-locale &&\
 apt-get autoremove -y &&\
-apt-get autoclean ;\
-bash -c "if [ `arch` == x86_64 ]; then \
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse\" > /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-elif [ `arch` == aarch64 ]; then \
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse\" > /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-fi "
+apt-get autoclean
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
