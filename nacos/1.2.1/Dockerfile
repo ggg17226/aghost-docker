@@ -8,8 +8,10 @@ echo ${HOSTNAME} >> /nacos/conf/cluster.conf ;\
 /usr/lib/jvm/java-11-openjdk-amd64/bin/java -server \
 -Xmx${MEM_SIZE:-512}m -Xms${MEM_SIZE:-512}m \
 -XX:+UnlockExperimentalVMOptions -XX:+UseZGC \
+-XX:MetaspaceSize=48m \
+-XX:MaxMetaspaceSize=384m \
 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/nacos/heap_dump/${HOSTNAME}/java_heapdump.hprof \
--XX:-UseLargePages -Xlog:gc*:file=/nacos/logs/${HOSTNAME}/nacos_gc.log:time,tags:filecount=10,filesize=102400 \
+-Xlog:gc*:file=/nacos/logs/${HOSTNAME}/nacos_gc.log:time,tags:filecount=10,filesize=102400 \
 -Dloader.path=/nacos/plugins/health,/nacos/plugins/cmdb,/nacos/plugins/mysql \
 -Dnacos.home=/nacos \
 -jar /nacos/nacos-server.jar \
