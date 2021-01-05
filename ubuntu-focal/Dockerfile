@@ -2,15 +2,15 @@ FROM ubuntu:focal-20201106
 MAINTAINER agh0st <ggg17226@gmail.com>
 RUN \
 bash -c "if [ `arch` == x86_64 ]; then \
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse\" > /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse\" > /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse\" >> /etc/apt/sources.list ;\
 elif [ `arch` == aarch64 ]; then \
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse\" > /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ focal main restricted universe multiverse\" > /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ focal-updates main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ focal-backports main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ focal-security main restricted universe multiverse\" >> /etc/apt/sources.list ;\
 fi ";\
 apt-get update &&\
 apt-get upgrade -y &&\
