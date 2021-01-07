@@ -1,4 +1,4 @@
-FROM agh0st/ubuntu:focal-20210105
+FROM agh0st/ubuntu:focal-20210107
 RUN env DEBIAN_FRONTEND=noninteractive apt update &&\
 env DEBIAN_FRONTEND=noninteractive apt install -y openjdk-11-jre &&\
 env DEBIAN_FRONTEND=noninteractive apt install -f &&\
