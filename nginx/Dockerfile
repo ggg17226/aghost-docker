@@ -40,7 +40,7 @@ echo "}" >> /etc/nginx/nginx.conf
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
-CMD /bin/bash -c "mkdir -p /var/log/nginx/ && chown -R nginx /var/log/nginx/ && \
-sed -i \"s/__WORKER_PROCESSES__/${NGINX_WORKER_PROCESSES:-1}/\" /etc/nginx/nginx.conf &&\
-sed -i \"s/__WORKER_CONNECTIONS__/${NGINX_WORKER_CONNECTIONS:-1024}/\" /etc/nginx/nginx.conf &&\
-nginx -g \"daemon off;\""
+CMD mkdir -p /var/log/nginx/ && chown -R nginx /var/log/nginx/ && \
+sed -i "s/__WORKER_PROCESSES__/${NGINX_WORKER_PROCESSES:-1}/" /etc/nginx/nginx.conf &&\
+sed -i "s/__WORKER_CONNECTIONS__/${NGINX_WORKER_CONNECTIONS:-1024}/" /etc/nginx/nginx.conf &&\
+nginx -g "daemon off;"
