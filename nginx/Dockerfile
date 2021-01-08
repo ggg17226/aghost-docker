@@ -36,7 +36,7 @@ echo "access_log off;" >> /etc/nginx/nginx.conf &&\
 echo "sendfile on;" >> /etc/nginx/nginx.conf &&\
 echo "keepalive_timeout  65;" >> /etc/nginx/nginx.conf &&\
 echo "include /etc/nginx/conf.d/*.conf;" >> /etc/nginx/nginx.conf &&\
-echo "}" >> /etc/nginx/nginx.conf &&\
+echo "}" >> /etc/nginx/nginx.conf
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
