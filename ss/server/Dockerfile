@@ -16,4 +16,4 @@ export SS_SERVER_RUN_ARGS=" -s \"${SS_SERVER_HOST:-0.0.0.0}\" -p ${SS_SERVER_POR
 export SS_SERVER_RUN_ARGS="$SS_SERVER_RUN_ARGS -m \"${SS_SERVER_METHOD:-xchacha20-ietf-poly1305}\" -k \"${SS_SERVER_PASSWORD:-$HOSTNAME}\" "&&\
 export SS_SERVER_RUN_ARGS="$SS_SERVER_RUN_ARGS -t ${SS_SERVER_TIMEOUT:-600} -n ${SS_SERVER_OPEN_FILE_LIMIT:-32767} "&&\
 export SS_SERVER_RUN_ARGS="$SS_SERVER_RUN_ARGS --no-delay $SS_SERVER_DNS_ARGS "&&\
-/app/ss-server ${SS_SERVER_RUN_ARGS} ${SS_SERVER_EXT_ARGS}
+echo /app/ss-server ${SS_SERVER_RUN_ARGS} ${SS_SERVER_EXT_ARGS} > /tmp/start_cmd && /bin/bash /tmp/start_cmd
