@@ -18,7 +18,7 @@ env DEBIAN_FRONTEND=noninteractive apt install -y tzdata &&\
 ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &&\
 dpkg-reconfigure --frontend noninteractive tzdata &&\
 echo "LANG=en_US.UTF-8" > /etc/default/locale &&\
-env DEBIAN_FRONTEND=noninteractive apt install -y vim htop net-tools psmisc wget curl git ca-certificates apt-utils libhugetlbfs-dev language-pack-zh-hans locales &&\
+env DEBIAN_FRONTEND=noninteractive apt install -y vim htop net-tools psmisc wget curl git ca-certificates apt-utils libhugetlbfs-dev language-pack-zh-hans locales iproute2 &&\
 env DEBIAN_FRONTEND=noninteractive apt install -f &&\
 sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen &&\
 locale-gen &&\
