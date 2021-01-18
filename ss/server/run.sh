@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-exec ss-server \
+cd /app
+./ss-server \
 -s "${SS_SERVER_HOST:-0.0.0.0}" \
 -p ${SS_SERVER_PORT:-14444} \
 -m "${SS_SERVER_METHOD:-xchacha20-ietf-poly1305}" \
