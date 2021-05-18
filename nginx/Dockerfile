@@ -1,4 +1,4 @@
-FROM nginx:1.19.6-perl
+FROM nginx:1.19.10-perl
 MAINTAINER agh0st <ggg17226@gmail.com>
 RUN \
 bash -c "echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free\" \
@@ -33,6 +33,7 @@ echo "http {" >> /etc/nginx/nginx.conf &&\
 echo "include /etc/nginx/mime.types;" >> /etc/nginx/nginx.conf &&\
 echo "default_type application/octet-stream;" >> /etc/nginx/nginx.conf &&\
 echo "access_log off;" >> /etc/nginx/nginx.conf &&\
+echo "server_tokens off;" >> /etc/nginx/nginx.conf &&\
 echo "sendfile on;" >> /etc/nginx/nginx.conf &&\
 echo "keepalive_timeout  65;" >> /etc/nginx/nginx.conf &&\
 echo "include /etc/nginx/conf.d/*.conf;" >> /etc/nginx/nginx.conf &&\
