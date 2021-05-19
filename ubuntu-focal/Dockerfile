@@ -1,4 +1,4 @@
-FROM ubuntu:focal-20201106
+FROM ubuntu:focal-20210416
 MAINTAINER agh0st <ggg17226@gmail.com>
 RUN \
 bash -c "if [ `arch` == x86_64 ]; then \
