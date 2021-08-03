@@ -22,5 +22,5 @@ proxy_set_header X-Forwarded-Host \\\$host;proxy_pass http://uwsgi_app;\
 ulimit -n 65535;/usr/sbin/nginx; \
 /usr/bin/uwsgi --uid 33 --plugin python3 --enable-threads -s /tmp/uwsgi-app.sock \
 --manage-script-name --mount /=${INIT_FILE_NAME:-app}:${INIT_FUNC_NAME:-app} -p ${UWSGI_WORKER_NUM:-1} --thunder-lock \
---chown-socket www-data -M -L --refork --tcp-nodelay --so-keepalive "
+--chown-socket www-data -M -L --refork --tcp-nodelay --so-keepalive --protocol=http "
 
