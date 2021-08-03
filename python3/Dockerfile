@@ -1,4 +1,4 @@
-FROM agh0st/ubuntu:focal-20210107
+FROM agh0st/ubuntu:focal-20210729
 RUN \
 env DEBIAN_FRONTEND=noninteractive apt update &&\
 env DEBIAN_FRONTEND=noninteractive apt install -y python3 python3-pip python3-setuptools gcc g++ make cmake build-essential &&\

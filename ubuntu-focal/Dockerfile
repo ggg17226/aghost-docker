@@ -12,19 +12,19 @@ echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ focal
 echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ focal-backports main restricted universe multiverse\" >> /etc/apt/sources.list ;\
 echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ focal-security main restricted universe multiverse\" >> /etc/apt/sources.list ;\
 fi ";\
-env DEBIAN_FRONTEND=noninteractive apt update &&\
-env DEBIAN_FRONTEND=noninteractive apt upgrade -y &&\
-env DEBIAN_FRONTEND=noninteractive apt install -y tzdata &&\
+env DEBIAN_FRONTEND=noninteractive apt-get update &&\
+env DEBIAN_FRONTEND=noninteractive apt-get upgrade -y &&\
+env DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata &&\
 ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &&\
 dpkg-reconfigure --frontend noninteractive tzdata &&\
 echo "LANG=en_US.UTF-8" > /etc/default/locale &&\
-env DEBIAN_FRONTEND=noninteractive apt install -y vim htop net-tools psmisc wget curl git ca-certificates apt-utils libhugetlbfs-dev language-pack-zh-hans locales iproute2 &&\
-env DEBIAN_FRONTEND=noninteractive apt install -f &&\
+env DEBIAN_FRONTEND=noninteractive apt-get install -y vim htop net-tools psmisc wget curl git ca-certificates apt-utils libhugetlbfs-dev language-pack-zh-hans locales iproute2 &&\
+env DEBIAN_FRONTEND=noninteractive apt-get install -f &&\
 sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen &&\
 locale-gen &&\
 update-locale &&\
-env DEBIAN_FRONTEND=noninteractive apt autoremove -y &&\
-env DEBIAN_FRONTEND=noninteractive apt autoclean &&\
+env DEBIAN_FRONTEND=noninteractive apt-get autoremove -y &&\
+env DEBIAN_FRONTEND=noninteractive apt-get autoclean &&\
 rm -rf /var/lib/apt/lists/* &&\
 rm -rf /var/log/*
 ENV LANG en_US.UTF-8
