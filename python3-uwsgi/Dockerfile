@@ -8,7 +8,7 @@ env DEBIAN_FRONTEND=noninteractive apt-get autoclean &&\
 rm -rf /var/lib/apt/lists/* &&\
 rm -rf /var/log/*
 WORKDIR /app
-CMD /bin/bash -c "echo \"\
+CMD /bin/bash -c "mkdir -p /var/log/nginx/;touch /var/log/nginx/error.log;echo \"\
 user www-data;pid /run/nginx.pid;include /etc/nginx/modules-enabled/*.conf;events {worker_connections 2048;}\
 http {sendfile on;tcp_nopush on;tcp_nodelay on;keepalive_timeout 65;types_hash_max_size 2048;\
 include /etc/nginx/mime.types;default_type application/octet-stream;access_log off;error_log off;\
