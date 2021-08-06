@@ -9,6 +9,9 @@ sed -i 's/3manager.org.apache.juli.AsyncFileHandler.directory = \${catalina.base
 sed -i 's/4host-manager.org.apache.juli.AsyncFileHandler.directory = \${catalina.base}\/logs/4host-manager.org.apache.juli.AsyncFileHandler.directory = \${catalina.base}\/logs\/\${APP_VERSION}-\${HOSTNAME}\//' /app/conf/logging.properties && \
 sed -i 's/handlers = 1catalina.org.apache.juli.AsyncFileHandler, 2localhost.org.apache.juli.AsyncFileHandler, 3manager.org.apache.juli.AsyncFileHandler, 4host-manager.org.apache.juli.AsyncFileHandler, java.util.logging.ConsoleHandler/handlers = 1catalina.org.apache.juli.AsyncFileHandler, 2localhost.org.apache.juli.AsyncFileHandler, 3manager.org.apache.juli.AsyncFileHandler, 4host-manager.org.apache.juli.AsyncFileHandler/' /app/conf/logging.properties && \
 sed -i 's/.handlers = 1catalina.org.apache.juli.AsyncFileHandler, java.util.logging.ConsoleHandler/.handlers = 1catalina.org.apache.juli.AsyncFileHandler/' /app/conf/logging.properties && \
+sed -i 's/<Valve className=\"org.apache.catalina.valves.AccessLogValve\" directory=\"logs\"//' /app/conf/server.xml && \
+sed -i 's/prefix=\"localhost_access_log\" suffix=\".txt\"//' /app/conf/server.xml && \
+sed -i 's/pattern=\"%h %l %u %t &quot;%r&quot; %s %b\" \/>//' /app/conf/server.xml && \
 echo ok"
 
 CMD ${PRE_EXEC_CMD} \
