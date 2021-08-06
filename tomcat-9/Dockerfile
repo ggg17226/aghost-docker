@@ -7,11 +7,13 @@ sed -i 's/1catalina.org.apache.juli.AsyncFileHandler.directory = \${catalina.bas
 sed -i 's/2localhost.org.apache.juli.AsyncFileHandler.directory = \${catalina.base}\/logs/2localhost.org.apache.juli.AsyncFileHandler.directory = \${catalina.base}\/logs\/\${APP_VERSION}-\${HOSTNAME}\//' /app/conf/logging.properties && \
 sed -i 's/3manager.org.apache.juli.AsyncFileHandler.directory = \${catalina.base}\/logs/3manager.org.apache.juli.AsyncFileHandler.directory = \${catalina.base}\/logs\/\${APP_VERSION}-\${HOSTNAME}\//' /app/conf/logging.properties && \
 sed -i 's/4host-manager.org.apache.juli.AsyncFileHandler.directory = \${catalina.base}\/logs/4host-manager.org.apache.juli.AsyncFileHandler.directory = \${catalina.base}\/logs\/\${APP_VERSION}-\${HOSTNAME}\//' /app/conf/logging.properties && \
-"
+sed -i 's/handlers = 1catalina.org.apache.juli.AsyncFileHandler, 2localhost.org.apache.juli.AsyncFileHandler, 3manager.org.apache.juli.AsyncFileHandler, 4host-manager.org.apache.juli.AsyncFileHandler, java.util.logging.ConsoleHandler/handlers = 1catalina.org.apache.juli.AsyncFileHandler, 2localhost.org.apache.juli.AsyncFileHandler, 3manager.org.apache.juli.AsyncFileHandler, 4host-manager.org.apache.juli.AsyncFileHandler/' /app/conf/logging.properties && \
+sed -i 's/.handlers = 1catalina.org.apache.juli.AsyncFileHandler, java.util.logging.ConsoleHandler/.handlers = 1catalina.org.apache.juli.AsyncFileHandler/' /app/conf/logging.properties && \
+echo ok"
 
 CMD ${PRE_EXEC_CMD} \
-    mkdir -p /app/logs/${APP_VERSION}-${HOSTNAME}/heap_dump ;\
-    mkdir -p /app/logs/${APP_VERSION}-${HOSTNAME}/gc ;\
+    mkdir -p /app/logs/${APP_VERSION:-V1}-${HOSTNAME}/heap_dump ;\
+    mkdir -p /app/logs/${APP_VERSION:-V1}-${HOSTNAME}/gc ;\
     /usr/lib/jvm/java-11-openjdk-amd64/bin/java -server \
     -Xmx${HEAP_MEM_SIZE:-512}m -Xms16m \
     -XX:MetaspaceSize=32m \
@@ -19,10 +21,10 @@ CMD ${PRE_EXEC_CMD} \
     -XX:OnOutOfMemoryError="kill -9 %p" \
     -XX:+UnlockExperimentalVMOptions -XX:+UseZGC \
     -XX:+HeapDumpOnOutOfMemoryError \
-    -XX:HeapDumpPath=/app/logs/${APP_VERSION}-${HOSTNAME}/heap_dump/java_heapdump.hprof \
+    -XX:HeapDumpPath=/app/logs/${APP_VERSION:-V1}-${HOSTNAME}/heap_dump/java_heapdump.hprof \
     ${EXT_JVM_CMD} \
     -Dfile.encoding=UTF-8 \
-    -Xlog:gc*:file=/app/logs/${APP_VERSION}-${HOSTNAME}/gc/gc.log:time,tags:filecount=10,filesize=102400 \
+    -Xlog:gc*:file=/app/logs/${APP_VERSION:-V1}-${HOSTNAME}/gc/gc.log:time,tags:filecount=10,filesize=102400 \
     ${EXT_APM_CMD} \
     -DAPP_VERSION=${APP_VERSION:-V1} -DHOSTNAME=${HOSTNAME} \
     -Djava.util.logging.config.file=/app/conf/logging.properties \
