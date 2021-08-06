@@ -12,6 +12,7 @@ sed -i 's/.handlers = 1catalina.org.apache.juli.AsyncFileHandler, java.util.logg
 sed -i 's/<Valve className=\"org.apache.catalina.valves.AccessLogValve\" directory=\"logs\"//' /app/conf/server.xml && \
 sed -i 's/prefix=\"localhost_access_log\" suffix=\".txt\"//' /app/conf/server.xml && \
 sed -i 's/pattern=\"%h %l %u %t &quot;%r&quot; %s %b\" \/>//' /app/conf/server.xml && \
+sed -i '/<\/Host>/i<Valve className=\"org.apache.catalina.valves.RemoteIpValve\" protocolHeaderHttpsValue=\"https\" remoteIpHeader=\"X-Forwarded-For\" protocolHeader=\"X-Forwarded-Proto\" \/>' /app/conf/server.xml && \
 echo ok"
 
 CMD ${PRE_EXEC_CMD} \
