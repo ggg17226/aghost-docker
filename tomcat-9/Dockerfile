@@ -42,5 +42,6 @@ CMD ${PRE_EXEC_CMD} \
     -Dcatalina.home="/app" \
     -Djava.io.tmpdir="/app/temp" \
     ${EXT_JVM_APP_CMD} \
-    org.apache.catalina.startup.Bootstrap start \
-    ${EXT_APP_CMD}
+    ${EXT_APP_CMD} \
+    org.apache.catalina.startup.Bootstrap start
+
