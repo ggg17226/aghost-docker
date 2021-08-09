@@ -13,7 +13,7 @@ RUN \
     curl -L -o ngx-cache-purge.tar.gz https://file.aghost.cn/source/ngx-cache-purge-2.3.tar.gz &&\
     tar xf ngx-cache-purge.tar.gz &&\
     mv ngx_cache_purge-2.3 ngx-cache-purge &&\
-    curl -L -o ndk.tar.gzhttps://file.aghost.cn/source/ndk-0.3.1.tar.gz &&\
+    curl -L -o ndk.tar.gz https://file.aghost.cn/source/ndk-0.3.1.tar.gz &&\
     tar xf ndk.tar.gz &&\
     mv ngx_devel_kit-0.3.1 ndk &&\
     curl -L -o echo.tar.gz https://file.aghost.cn/source/ngx-echo-0.62.tar.gz &&\
