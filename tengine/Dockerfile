@@ -114,6 +114,7 @@ RUN \
     --with-luajit-inc=/usr/local/include/luajit-2.1/ \
     --with-luajit-lib=/usr/local/lib/ &&\
     make -j `cat /proc/cpuinfo|grep "model name"|wc -l` &&\
-    mkdir -p /var/lib/nginx/body && make install
+    mkdir -p /var/lib/nginx/body && make install && \
+    rm -rf /app/*
 
 
