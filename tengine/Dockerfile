@@ -33,7 +33,7 @@ RUN \
     curl -L -o luajit.tar.gz https://file.aghost.cn/source/luajit2.1-20210510.tar.gz &&\
     tar xf luajit.tar.gz &&\
     mv luajit2-2.1-20210510 luajit &&\
-    rm -rf /app/*.tar.gz  \
+    rm -rf /app/*.tar.gz
 #    &&\
 #    cd tengine-2.3.3 &&\
 #    ldconfig &&\
@@ -111,7 +111,8 @@ RUN \
 #    --add-module=./modules/ngx_slab_stat \
 #    --with-luajit-inc=/usr/include/luajit-2.1 \
 #    --with-luajit-lib=/usr/lib/x86_64-linux-gnu &&\
-#    make -j `cat /proc/cpuinfo|grep "model name"|wc -l`
+#    make -j `cat /proc/cpuinfo|grep "model name"|wc -l` && \
+#    mkdir -p /var/lib/nginx/body && make install
 
 
 
