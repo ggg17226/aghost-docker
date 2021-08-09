@@ -33,88 +33,87 @@ RUN \
     curl -L -o luajit.tar.gz https://file.aghost.cn/source/luajit2.1-20210510.tar.gz &&\
     tar xf luajit.tar.gz &&\
     mv luajit2-2.1-20210510 luajit &&\
-    rm -rf /app/*.tar.gz
-#    &&\
-#    cd tengine-2.3.3 &&\
-#    ldconfig &&\
-#    ./configure \
-#    --prefix=/usr/local/ \
-#    --with-cc-opt='-O3 -fPIC -pipe' \
-#    --with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,now -fPIC' \
-#    --conf-path=/etc/nginx/nginx.conf \
-#    --http-log-path=/var/log/nginx/access.log \
-#    --error-log-path=/var/log/nginx/error.log \
-#    --lock-path=/var/lock/nginx.lock \
-#    --pid-path=/run/nginx.pid \
-#    --modules-path=/usr/lib/nginx/modules \
-#    --http-client-body-temp-path=/var/lib/nginx/body \
-#    --http-fastcgi-temp-path=/var/lib/nginx/fastcgi \
-#    --http-proxy-temp-path=/var/lib/nginx/proxy \
-#    --http-scgi-temp-path=/var/lib/nginx/scgi \
-#    --http-uwsgi-temp-path=/var/lib/nginx/uwsgi \
-#    --with-compat \
-#    --with-pcre \
-#    --with-pcre-jit \
-#    --with-http_ssl_module \
-#    --with-http_stub_status_module \
-#    --with-http_realip_module \
-#    --with-http_auth_request_module \
-#    --with-http_v2_module \
-#    --with-http_dav_module \
-#    --with-http_slice_module \
-#    --with-threads \
-#    --with-http_addition_module \
-#    --with-http_flv_module \
-#    --with-http_geoip_module \
-#    --with-stream_geoip_module \
-#    --with-http_gunzip_module \
-#    --with-http_gzip_static_module \
-#    --with-http_image_filter_module \
-#    --with-http_mp4_module \
-#    --with-http_random_index_module \
-#    --with-http_secure_link_module \
-#    --with-http_sub_module \
-#    --with-http_xslt_module \
-#    --with-stream \
-#    --with-stream_ssl_module \
-#    --with-stream_ssl_preread_module \
-#    --with-stream_realip_module \
-#    --with-stream_geoip_module \
-#    --with-stream_sni \
-#    --with-jemalloc \
-#    --with-http_sub_module \
-#    --with-http_dav_module \
-#    --with-http_auth_request_module \
-#    --add-module=/app/ngx-cache-purge \
-#    --add-module=/app/ndk \
-#    --add-module=/app/echo \
-#    --add-module=./modules/ngx_http_lua_module \
-#    --add-module=./modules/mod_config \
-#    --add-module=./modules/ngx_backtrace_module \
-#    --add-module=./modules/ngx_http_concat_module \
-#    --add-module=./modules/ngx_http_footer_filter_module \
-#    --add-module=./modules/ngx_http_proxy_connect_module \
-#    --add-module=./modules/ngx_http_reqstat_module \
-#    --add-module=./modules/ngx_http_slice_module \
-#    --add-module=./modules/ngx_http_sysguard_module \
-#    --add-module=./modules/ngx_http_trim_filter_module \
-#    --add-module=./modules/ngx_http_upstream_check_module \
-#    --add-module=./modules/ngx_http_upstream_consistent_hash_module \
-#    --add-module=./modules/ngx_http_upstream_dynamic_module \
-#    --add-module=./modules/ngx_http_upstream_dyups_module \
-#    --without-http_upstream_keepalive_module \
-#    --add-module=./modules/ngx_http_upstream_keepalive_module \
-#    --add-module=./modules/ngx_http_upstream_session_sticky_module \
-#    --add-module=./modules/ngx_http_upstream_vnswrr_module \
-#    --add-module=./modules/ngx_http_user_agent_module \
-#    --add-module=./modules/ngx_multi_upstream_module \
-#    --add-module=./modules/ngx_slab_stat \
-#    --with-luajit-inc=/usr/include/luajit-2.1 \
-#    --with-luajit-lib=/usr/lib/x86_64-linux-gnu &&\
-#    make -j `cat /proc/cpuinfo|grep "model name"|wc -l` && \
-#    mkdir -p /var/lib/nginx/body && make install
+    rm -rf /app/*.tar.gz &&\
+    cd /app/luajit &&\
+    make -j `cat /proc/cpuinfo|grep "model name"|wc -l` &&\
+    make install &&\
+    cd /app/tengine-2.3.3 &&\
+    ldconfig &&\
+    ./configure \
+    --prefix=/usr/local/ \
+    --with-cc-opt='-O3 -fPIC -pipe' \
+    --with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,now -fPIC' \
+    --conf-path=/etc/nginx/nginx.conf \
+    --http-log-path=/var/log/nginx/access.log \
+    --error-log-path=/var/log/nginx/error.log \
+    --lock-path=/var/lock/nginx.lock \
+    --pid-path=/run/nginx.pid \
+    --modules-path=/usr/lib/nginx/modules \
+    --http-client-body-temp-path=/var/lib/nginx/body \
+    --http-fastcgi-temp-path=/var/lib/nginx/fastcgi \
+    --http-proxy-temp-path=/var/lib/nginx/proxy \
+    --http-scgi-temp-path=/var/lib/nginx/scgi \
+    --http-uwsgi-temp-path=/var/lib/nginx/uwsgi \
+    --with-compat \
+    --with-pcre \
+    --with-pcre-jit \
+    --with-http_ssl_module \
+    --with-http_stub_status_module \
+    --with-http_realip_module \
+    --with-http_auth_request_module \
+    --with-http_v2_module \
+    --with-http_dav_module \
+    --with-http_slice_module \
+    --with-threads \
+    --with-http_addition_module \
+    --with-http_flv_module \
+    --with-http_geoip_module \
+    --with-stream_geoip_module \
+    --with-http_gunzip_module \
+    --with-http_gzip_static_module \
+    --with-http_image_filter_module \
+    --with-http_mp4_module \
+    --with-http_random_index_module \
+    --with-http_secure_link_module \
+    --with-http_sub_module \
+    --with-http_xslt_module \
+    --with-stream \
+    --with-stream_ssl_module \
+    --with-stream_ssl_preread_module \
+    --with-stream_realip_module \
+    --with-stream_geoip_module \
+    --with-stream_sni \
+    --with-jemalloc \
+    --with-http_sub_module \
+    --with-http_dav_module \
+    --with-http_auth_request_module \
+    --add-module=/app/ngx-cache-purge \
+    --add-module=/app/ndk \
+    --add-module=/app/echo \
+    --add-module=./modules/ngx_http_lua_module \
+    --add-module=./modules/mod_config \
+    --add-module=./modules/ngx_backtrace_module \
+    --add-module=./modules/ngx_http_concat_module \
+    --add-module=./modules/ngx_http_footer_filter_module \
+    --add-module=./modules/ngx_http_proxy_connect_module \
+    --add-module=./modules/ngx_http_reqstat_module \
+    --add-module=./modules/ngx_http_slice_module \
+    --add-module=./modules/ngx_http_sysguard_module \
+    --add-module=./modules/ngx_http_trim_filter_module \
+    --add-module=./modules/ngx_http_upstream_check_module \
+    --add-module=./modules/ngx_http_upstream_consistent_hash_module \
+    --add-module=./modules/ngx_http_upstream_dynamic_module \
+    --add-module=./modules/ngx_http_upstream_dyups_module \
+    --without-http_upstream_keepalive_module \
+    --add-module=./modules/ngx_http_upstream_keepalive_module \
+    --add-module=./modules/ngx_http_upstream_session_sticky_module \
+    --add-module=./modules/ngx_http_upstream_vnswrr_module \
+    --add-module=./modules/ngx_http_user_agent_module \
+    --add-module=./modules/ngx_multi_upstream_module \
+    --add-module=./modules/ngx_slab_stat \
+    --with-luajit-inc=/usr/local/include/luajit-2.1/ \
+    --with-luajit-lib=/usr/local/lib/ &&\
+    make -j `cat /proc/cpuinfo|grep "model name"|wc -l` &&\
+    mkdir -p /var/lib/nginx/body && make install
 
 
-
-
-CMD /bin/bash
