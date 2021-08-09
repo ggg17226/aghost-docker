@@ -8,11 +8,20 @@ RUN \
     env DEBIAN_FRONTEND=noninteractive apt-get autoremove -y &&\
     env DEBIAN_FRONTEND=noninteractive apt-get autoclean &&\
     cd /app &&\
-    wget https://tengine.taobao.org/download/tengine-2.3.3.tar.gz &&\
-    tar xf tengine-2.3.3.tar.gz &&\
-    curl ${CURL_PSTR} -L -o /app/http-subs-filter.tar.gz https://github.com/yaoweibin/ngx_http_substitutions_filter_module/archive/refs/tags/v0.6.4.tar.gz &&\
-    tar xf http-subs-filter.tar.gz &&\
-    mv ngx_http_substitutions_filter_module-0.6.4 http-subs-filter
+    curl -L -o tengine.tar.gz https://tengine.taobao.org/download/tengine-2.3.3.tar.gz &&\
+    tar xf tengine.tar.gz &&\
+    $PSTR curl -L -o ngx_cache_purge.tar.gz https://github.com/FRiCKLE/ngx_cache_purge/archive/refs/tags/2.3.tar.gz &&\
+    tar xf ngx_cache_purge.tar.gz &&\
+    mv ngx_cache_purge-2.3 ngx_cache_purge
+    $PSTR curl -L -o ndk.tar.gz https://github.com/vision5/ngx_devel_kit/archive/refs/tags/v0.3.1.tar.gz &&\
+    tar xf ndk.tar.gz &&\
+    mv ngx_devel_kit-0.3.1 ndk &&\
+    $PSTR curl -L -o echo.tar.gz https://github.com/openresty/echo-nginx-module/archive/refs/tags/v0.62.tar.gz &&\
+    tar xf echo.tar.gz &&\
+    mv echo-nginx-module-0.62 echo &&\
+    rm -rf /app/tengine.tar.gz /app/ngx_cache_purge.tar.gz /app/ndk.tar.gz /app/echo.tar.gz
+
+
 
 
 CMD /bin/bash
