@@ -2,6 +2,7 @@ FROM agh0st/ubuntu:focal-20210729
 WORKDIR /app
 RUN \
     env DEBIAN_FRONTEND=noninteractive apt-get update &&\
+    env DEBIAN_FRONTEND=noninteractive apt-get upgrade -y &&\
     env DEBIAN_FRONTEND=noninteractive apt-get install -y gcc g++ make cmake build-essential libtool-bin libjemalloc-dev  &&\
     env DEBIAN_FRONTEND=noninteractive apt-get install -f &&\
     env DEBIAN_FRONTEND=noninteractive apt-get autoremove -y &&\
