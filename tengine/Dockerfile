@@ -9,7 +9,10 @@ RUN \
     env DEBIAN_FRONTEND=noninteractive apt-get autoclean &&\
     cd /app &&\
     wget https://tengine.taobao.org/download/tengine-2.3.3.tar.gz &&\
-    tar xf tengine-2.3.3.tar.gz
+    tar xf tengine-2.3.3.tar.gz &&\
+    curl ${CURL_PSTR} -L -o /app/http-subs-filter.tar.gz https://github.com/yaoweibin/ngx_http_substitutions_filter_module/archive/refs/tags/v0.6.4.tar.gz &&\
+    tar xf http-subs-filter.tar.gz &&\
+    mv ngx_http_substitutions_filter_module-0.6.4 http-subs-filter
 
 
 CMD /bin/bash
