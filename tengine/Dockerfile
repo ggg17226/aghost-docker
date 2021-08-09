@@ -83,9 +83,8 @@ RUN \
     --add-dynamic-module=/app/ngx-cache-purge \
     --add-dynamic-module=/app/ndk \
     --add-dynamic-module=/app/echo \
-    --with-luajit-inc=/usr/include/luajit-2.1 \
-    --with-perl=/usr/share/perl6/ &&\
-    ldconfig  \
+    --with-luajit-inc=/usr/include/luajit-2.1 &&\
+    ldconfig
 #    &&\
 #    make -j `cat /proc/cpuinfo|grep "model name"|wc -l`
 
