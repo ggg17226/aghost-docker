@@ -12,7 +12,7 @@ RUN \
     tar xf tengine.tar.gz &&\
     $PSTR curl -L -o ngx_cache_purge.tar.gz https://github.com/FRiCKLE/ngx_cache_purge/archive/refs/tags/2.3.tar.gz &&\
     tar xf ngx_cache_purge.tar.gz &&\
-    mv ngx_cache_purge-2.3 ngx_cache_purge
+    mv ngx_cache_purge-2.3 ngx_cache_purge &&\
     $PSTR curl -L -o ndk.tar.gz https://github.com/vision5/ngx_devel_kit/archive/refs/tags/v0.3.1.tar.gz &&\
     tar xf ndk.tar.gz &&\
     mv ngx_devel_kit-0.3.1 ndk &&\
