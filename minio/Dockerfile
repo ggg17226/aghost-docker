@@ -10,7 +10,8 @@ RUN /bin/bash -c "\
     wget http://192.168.27.101/minio/linux-arm64/minio; \
     wget http://192.168.27.101/minio/linux-arm64/mc; \
     fi;\
-    chmod a+x minio;chmod a+x mc;ln -s /app/* /usr/local/bin/"
+    chmod a+x minio;chmod a+x mc;chmod a+x run-minio.sh; \
+    ln -s /app/* /usr/local/bin/"
 
 CMD /app/run-minio.sh
 
