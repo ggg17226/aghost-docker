@@ -11,7 +11,8 @@ RUN /bin/bash -c "\
     wget http://192.168.27.101/minio/linux-arm64/mc; \
     fi;\
     chmod a+x minio;chmod a+x mc;chmod a+x run-minio.sh; \
-    ln -s /app/* /usr/local/bin/"
+    ln -s /app/* /usr/local/bin/; \
+    mc --autocompletion;"
 
 CMD /app/run-minio.sh
 
