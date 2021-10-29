@@ -1,5 +1,6 @@
 FROM agh0st/ubuntu:focal-20210729
 WORKDIR /app
+COPY run-minio.sh
 RUN /bin/bash -c "\
     cd /app;\
     if [ `arch` == x86_64 ]; then \
@@ -9,5 +10,7 @@ RUN /bin/bash -c "\
     fi;\
     chmod a+x minio"
 
-CMD /bin/bash -c "cd /app;\
-${CMD_RUNTIME_PREFIX} /app/minio ${CMD_RUNTIME_PARAM}"
+CMD /app/run-minio.sh
+
+
+
