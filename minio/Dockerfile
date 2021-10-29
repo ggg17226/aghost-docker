@@ -1,14 +1,16 @@
-FROM agh0st/ubuntu:focal-20210729
+FROM agh0st/ubuntu:focal-20211029-1818-CST
 WORKDIR /app
-COPY run-minio.sh
+COPY run-minio.sh /app/
 RUN /bin/bash -c "\
     cd /app;\
     if [ `arch` == x86_64 ]; then \
-        wget http://192.168.27.101/minio/linux-amd64/minio; \
+    wget http://192.168.27.101/minio/linux-amd64/minio; \
+    wget http://192.168.27.101/minio/linux-amd64/mc; \
     elif [ `arch` == aarch64 ]; then \
-        wget http://192.168.27.101/minio/linux-arm64/minio; \
+    wget http://192.168.27.101/minio/linux-arm64/minio; \
+    wget http://192.168.27.101/minio/linux-arm64/mc; \
     fi;\
-    chmod a+x minio"
+    chmod a+x minio;chmod a+x mc;ln -s /app/* /usr/local/bin/"
 
 CMD /app/run-minio.sh
 
