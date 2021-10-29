@@ -1,6 +1,7 @@
 FROM agh0st/ubuntu:focal-20211029-1818-CST
 WORKDIR /app
 COPY run-minio.sh /app/
+COPY gateway-nas-autoinit.sh /app/
 RUN /bin/bash -c "\
     cd /app;\
     if [ `arch` == x86_64 ]; then \
@@ -10,7 +11,7 @@ RUN /bin/bash -c "\
     wget http://192.168.27.101/minio/linux-arm64/minio; \
     wget http://192.168.27.101/minio/linux-arm64/mc; \
     fi;\
-    chmod a+x minio;chmod a+x mc;chmod a+x run-minio.sh; \
+    chmod a+x *; \
     ln -s /app/* /usr/local/bin/; \
     mc --autocompletion;"
 
