@@ -1,4 +1,6 @@
 #!/bin/bash
+if [ -z ${MINIO_ROOT_USER} ];then export MINIO_ROOT_USER=minio_root_user;fi
+if [ -z ${MINIO_ROOT_PASSWORD} ];then export MINIO_ROOT_PASSWORD=minio_root_password;fi
 mkdir -p ~/.mc
 cat > ~/.mc/config.json <<- EOF
 {
