@@ -7,4 +7,4 @@ RUN env DEBIAN_FRONTEND=noninteractive apt-get update &&\
     rm -rf /var/lib/apt/lists/* &&\
     rm -rf /var/log/* 
 COPY ntp.conf /etc/ntp.conf
-RUN /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 114:120 -nN
+CMD /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 114:120 -nN
