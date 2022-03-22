@@ -1,4 +1,4 @@
-FROM node:14.15.4-buster
+FROM node:16.14.2-buster
 MAINTAINER agh0st <ggg17226@gmail.com>
 RUN \
 bash -c "echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free\" > /etc/apt/sources.list ;\
