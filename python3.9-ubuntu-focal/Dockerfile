@@ -9,7 +9,7 @@ RUN \
   env DEBIAN_FRONTEND=noninteractive apt autoremove -y &&\
   env DEBIAN_FRONTEND=noninteractive apt autoclean &&\
   cd /tmp && wget http://192.168.27.101/Python-3.9.12-build.tar.gz && tar xf Python-3.9.12-build.tar.gz &&\
-  cd /tmp/Python-3.9.12 && make install && rm -rf /tmp/* &&\
+  cd /tmp/Python-3.9.12 && make install && cd / && rm -rf /tmp/* &&\
   pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple &&\
   python3 --version &&\
   rm -rf /var/lib/apt/lists/* &&\
