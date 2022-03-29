@@ -1,4 +1,4 @@
-FROM nginx:1.19.10-perl
+FROM nginx:1.20.2-perl
 MAINTAINER agh0st <ggg17226@gmail.com>
 RUN \
 bash -c "echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free\" \
