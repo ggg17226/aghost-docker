@@ -15,7 +15,7 @@ env DEBIAN_FRONTEND=noninteractive apt update && env DEBIAN_FRONTEND=noninteract
 ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && dpkg-reconfigure --frontend noninteractive tzdata &&\
 echo \"LANG=en_US.UTF-8\" > /etc/default/locale  &&\
 env DEBIAN_FRONTEND=noninteractive apt install -y vim net-tools psmisc wget curl ca-certificates \
-xfonts-intl-chinese xfonts-intl-chinese-big locales &&\
+xfonts-intl-chinese xfonts-intl-chinese-big  &&\
 env DEBIAN_FRONTEND=noninteractive apt install -f &&\
 sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen &&\
 locale-gen &&\
