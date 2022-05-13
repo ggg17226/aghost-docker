@@ -1,4 +1,4 @@
-FROM ubuntu:bionic-20201119
+FROM ubuntu:bionic-20220427
 MAINTAINER agh0st <ggg17226@gmail.com>
 RUN \
 bash -c "if [ `arch` == x86_64 ]; then \
