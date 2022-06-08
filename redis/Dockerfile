@@ -5,5 +5,5 @@ RUN \
     env DEBIAN_FRONTEND=noninteractive apt-get install -y uwsgi-plugin-python3 &&\
     env DEBIAN_FRONTEND=noninteractive apt-get install -f &&\
     env DEBIAN_FRONTEND=noninteractive apt-get autoremove -y &&\
-    env DEBIAN_FRONTEND=noninteractive apt-get autoclean &&\
-    WORKDIR /app
+    env DEBIAN_FRONTEND=noninteractive apt-get autoclean
+WORKDIR /app
