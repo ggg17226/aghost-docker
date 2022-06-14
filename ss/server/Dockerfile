@@ -1,4 +1,4 @@
-FROM agh0st/ubuntu:focal-20210118
+FROM agh0st/ubuntu:jammy-20220601-1806-CST
 MAINTAINER agh0st <ggg17226@gmail.com>
 WORKDIR /app
 COPY ss-server /app/
