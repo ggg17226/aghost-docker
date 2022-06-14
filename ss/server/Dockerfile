@@ -4,12 +4,13 @@ WORKDIR /app
 COPY ss-server /app/
 COPY run.sh /app/
 RUN chmod 755 /app/ss-server /app/run.sh && \
-env DEBIAN_FRONTEND=noninteractive apt update &&\
-env DEBIAN_FRONTEND=noninteractive apt install -y libev-dev libc-ares-dev libsodium-dev libmbedcrypto7  &&\
-env DEBIAN_FRONTEND=noninteractive apt install -f &&\
-env DEBIAN_FRONTEND=noninteractive apt autoremove -y &&\
-env DEBIAN_FRONTEND=noninteractive apt autoclean &&\
-rm -rf /var/lib/apt/lists/* &&\
-rm -rf /var/log/*
+    env DEBIAN_FRONTEND=noninteractive apt update &&\
+    env DEBIAN_FRONTEND=noninteractive apt install -y libev-dev libc-ares-dev libsodium-dev libmbedcrypto7  &&\
+    env DEBIAN_FRONTEND=noninteractive apt install -f &&\
+    env DEBIAN_FRONTEND=noninteractive apt upgrade -y &&\
+    env DEBIAN_FRONTEND=noninteractive apt autoremove -y &&\
+    env DEBIAN_FRONTEND=noninteractive apt autoclean &&\
+    rm -rf /var/lib/apt/lists/* &&\
+    rm -rf /var/log/*
 
 CMD /bin/bash /app/run.sh
