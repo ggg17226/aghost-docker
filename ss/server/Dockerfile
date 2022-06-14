@@ -5,7 +5,7 @@ COPY ss-server /app/
 COPY run.sh /app/
 RUN chmod 755 /app/ss-server /app/run.sh && \
 env DEBIAN_FRONTEND=noninteractive apt update &&\
-env DEBIAN_FRONTEND=noninteractive apt install -y libev4 libc-ares2 libsodium23 libmbedcrypto3  &&\
+env DEBIAN_FRONTEND=noninteractive apt install -y libev-dev libc-ares-dev libsodium-dev libmbedcrypto7  &&\
 env DEBIAN_FRONTEND=noninteractive apt install -f &&\
 env DEBIAN_FRONTEND=noninteractive apt autoremove -y &&\
 env DEBIAN_FRONTEND=noninteractive apt autoclean &&\
