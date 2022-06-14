@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 cd /app
-ulimit -n 6553500
 ./ss-server \
 --server-addr "${SS_SERVER_HOST:-[::]}:${SS_SERVER_PORT:-14444}" \
 --encrypt-method "${SS_SERVER_METHOD:-xchacha20-ietf-poly1305}" \
