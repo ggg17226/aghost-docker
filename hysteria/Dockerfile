@@ -17,6 +17,6 @@ RUN \
           wget https://file.agh0st.com/software/hysteria/linux-arm64/hysteria;\
         fi ";\
     mv /tmp/hysteria /app/ && chmod 755 /app/hysteria; \
-    mv /tmp/hy-conf-generator /app/ && chmod 755 /app/hy-conf-generator \
+    mv /tmp/hy-conf-generator /app/ && chmod 755 /app/hy-conf-generator
 
 CMD /bin/bash -c "/app/hy-conf-generator > /app/config.json && /app/hysteria -c /app/config.json "
