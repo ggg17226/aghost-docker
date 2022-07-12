@@ -1,4 +1,4 @@
-FROM ubuntu:jammy-20220428
+FROM ubuntu:jammy-20220531
 LABEL Author="agh0st <ggg17226@gmail.com>" 
 RUN \
   bash -c "if [ `arch` == x86_64 ]; then \
