@@ -1,4 +1,4 @@
-FROM agh0st/ubuntu:jammy-20220601-1806-CST
+FROM agh0st/ubuntu:jammy-20220712-1854-CST
 RUN \
     env DEBIAN_FRONTEND=noninteractive apt-get update && \
     env DEBIAN_FRONTEND=noninteractive apt-get upgrade -y &&\
