@@ -8,3 +8,4 @@ RUN \
     env DEBIAN_FRONTEND=noninteractive apt-get autoclean &&\
     chmod 755 /app/clash
 WORKDIR /app
+CMD /app/clash
