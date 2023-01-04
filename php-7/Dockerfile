@@ -1,4 +1,4 @@
-FROM agh0st/ubuntu:focal-20220907-1623-CST
+FROM agh0st/ubuntu:focal-20230104-1338-CST
 RUN env DEBIAN_FRONTEND=noninteractive apt-get update &&\
     env DEBIAN_FRONTEND=noninteractive apt-get upgrade -y &&\
     env DEBIAN_FRONTEND=noninteractive apt-get install -y php7.4-fpm php7.4-bcmath php7.4-bz2 php7.4-cli \
