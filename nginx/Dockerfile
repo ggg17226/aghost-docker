@@ -1,4 +1,4 @@
-FROM agh0st/ubuntu:focal-20220319-0943-CST
+FROM agh0st/ubuntu:focal-20230104-1338-CST
 MAINTAINER agh0st <ggg17226@gmail.com>
 RUN \
   bash -c "\
