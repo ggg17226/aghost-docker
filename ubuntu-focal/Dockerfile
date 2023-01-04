@@ -1,4 +1,4 @@
-FROM ubuntu:focal-20220922
+FROM ubuntu:focal-20221130
 LABEL Author="agh0st <ggg17226@gmail.com>" 
 RUN \
   bash -c "if [ `arch` == x86_64 ]; then \
