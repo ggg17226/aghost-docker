@@ -1,4 +1,4 @@
-FROM agh0st/ubuntu:focal-20220319-0943-CST
+FROM agh0st/ubuntu:focal-20230104-1338-CST
 RUN env DEBIAN_FRONTEND=noninteractive apt-get update &&\
 env DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-11-jdk &&\
 env DEBIAN_FRONTEND=noninteractive apt-get install -f &&\
