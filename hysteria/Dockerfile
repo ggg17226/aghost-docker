@@ -18,4 +18,4 @@ RUN \
     mv /tmp/hysteria /app/ && chmod 755 /app/hysteria; \
     mv /tmp/hy-conf-generator /app/ && chmod 755 /app/hy-conf-generator
 
-CMD /bin/bash -c "/app/hy-conf-generator > /app/config.json && /app/hysteria -c /app/config.json ${RUN_MODE:-server}"
+CMD /bin/bash -c "/app/hy-conf-generator > /app/config.json && /app/hysteria -c /app/config.json ${RUN_MODE:-server} --no-check"
