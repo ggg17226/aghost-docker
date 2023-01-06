@@ -9,11 +9,11 @@ RUN \
     env DEBIAN_FRONTEND=noninteractive apt-get autoclean &&\
     bash -c "cd /tmp;\
         if [ `arch` == x86_64 ]; then \
-          wget https://file.agh0st.com/software/hy-conf-generator/linux-amd64/hy-conf-generator;\
-          wget https://file.agh0st.com/software/hysteria/linux-amd64/hysteria;\
+          wget https://file.aghost.cn/software/hy-conf-generator/linux-amd64/hy-conf-generator;\
+          wget https://file.aghost.cn/software/hysteria/linux-amd64/hysteria;\
         elif [ `arch` == aarch64 ]; then \
-          wget https://file.agh0st.com/software/hy-conf-generator/linux-arm64/hy-conf-generator;\
-          wget https://file.agh0st.com/software/hysteria/linux-arm64/hysteria;\
+          wget https://file.aghost.cn/software/hy-conf-generator/linux-arm64/hy-conf-generator;\
+          wget https://file.aghost.cn/software/hysteria/linux-arm64/hysteria;\
         fi ";\
     mv /tmp/hysteria /app/ && chmod 755 /app/hysteria; \
     mv /tmp/hy-conf-generator /app/ && chmod 755 /app/hy-conf-generator
