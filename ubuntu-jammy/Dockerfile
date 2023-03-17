@@ -2,15 +2,15 @@ FROM ubuntu:jammy-20230308
 LABEL Author="agh0st <ggg17226@gmail.com>" 
 RUN \
   bash -c "if [ `arch` == x86_64 ]; then \
-  echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse\" > /etc/apt/sources.list ;\
-  echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-  echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-  echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+  echo \"deb [trusted=yes] http://r720.aghost.cn/ubuntu/ jammy main restricted universe multiverse\" > /etc/apt/sources.list ;\
+  echo \"deb [trusted=yes] http://r720.aghost.cn/ubuntu/ jammy-updates main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+  echo \"deb [trusted=yes] http://r720.aghost.cn/ubuntu/ jammy-backports main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+  echo \"deb [trusted=yes] http://r720.aghost.cn/ubuntu/ jammy-security main restricted universe multiverse\" >> /etc/apt/sources.list ;\
   elif [ `arch` == aarch64 ]; then \
-  echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy main restricted universe multiverse\" > /etc/apt/sources.list ;\
-  echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-updates main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-  echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-backports main restricted universe multiverse\" >> /etc/apt/sources.list ;\
-  echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-security main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+  echo \"deb [trusted=yes] http://r720.aghost.cn/ubuntu-ports/ jammy main restricted universe multiverse\" > /etc/apt/sources.list ;\
+  echo \"deb [trusted=yes] http://r720.aghost.cn/ubuntu-ports/ jammy-updates main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+  echo \"deb [trusted=yes] http://r720.aghost.cn/ubuntu-ports/ jammy-backports main restricted universe multiverse\" >> /etc/apt/sources.list ;\
+  echo \"deb [trusted=yes] http://r720.aghost.cn/ubuntu-ports/ jammy-security main restricted universe multiverse\" >> /etc/apt/sources.list ;\
   fi ";\
   env DEBIAN_FRONTEND=noninteractive apt update &&\
   env DEBIAN_FRONTEND=noninteractive apt install -y tzdata &&\
@@ -26,7 +26,8 @@ RUN \
   env DEBIAN_FRONTEND=noninteractive apt autoremove -y &&\
   env DEBIAN_FRONTEND=noninteractive apt autoclean &&\
   rm -rf /var/lib/apt/lists/* &&\
-  rm -rf /var/log/*
+  rm -rf /var/log/* &&\
+  sed -i 's/r720.aghost.cn/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
