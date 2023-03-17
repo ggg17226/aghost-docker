@@ -5,5 +5,5 @@ do \
   working_dir=${local_dir}/${i}
   echo ==========================$working_dir;\
   cd $working_dir && \
-  bash ./build-image.sh || break\
+  bash ./build-image.sh || break ;\
  done
