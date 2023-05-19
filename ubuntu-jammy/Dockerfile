@@ -1,6 +1,8 @@
 FROM ubuntu:jammy-20230425
 LABEL Author="agh0st <ggg17226@gmail.com>" 
 RUN \
+  env DEBIAN_FRONTEND=noninteractive apt update && \
+  env DEBIAN_FRONTEND=noninteractive apt install -y ca-certificates && \
   bash -c "if [ `arch` == x86_64 ]; then \
   echo \"deb [trusted=yes] https://r730.aghost.cn/ubuntu/ jammy main restricted universe multiverse\" > /etc/apt/sources.list ;\
   echo \"deb [trusted=yes] https://r730.aghost.cn/ubuntu/ jammy-updates main restricted universe multiverse\" >> /etc/apt/sources.list ;\

@@ -1,6 +1,8 @@
 FROM ubuntu:focal-20230412
 LABEL Author="agh0st <ggg17226@gmail.com>" 
 RUN \
+  env DEBIAN_FRONTEND=noninteractive apt update && \
+  env DEBIAN_FRONTEND=noninteractive apt install -y ca-certificates && \
   bash -c "if [ `arch` == x86_64 ]; then \
   echo \"deb [trusted=yes] https://r730.aghost.cn/ubuntu/ focal main restricted universe multiverse\" > /etc/apt/sources.list ;\
   echo \"deb [trusted=yes] https://r730.aghost.cn/ubuntu/ focal-updates main restricted universe multiverse\" >> /etc/apt/sources.list ;\
