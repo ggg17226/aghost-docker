@@ -4,7 +4,7 @@ RUN \
 bash -c "echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free\" > /etc/apt/sources.list ;\
 echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-updates main contrib non-free\" >> /etc/apt/sources.list ;\
 echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-backports main contrib non-free\" >> /etc/apt/sources.list;\
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/debian-security/ bullseye/updates main contrib non-free\" >> /etc/apt/sources.list ;";\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/debian-security/ bullseye-security main contrib non-free\" >> /etc/apt/sources.list ;";\
 bash -c "\
 env DEBIAN_FRONTEND=noninteractive apt update && env DEBIAN_FRONTEND=noninteractive apt upgrade -y &&\
  env DEBIAN_FRONTEND=noninteractive apt install -y tzdata &&\
