@@ -1,10 +1,10 @@
 FROM node:16.20.0-bullseye
 MAINTAINER agh0st <ggg17226@gmail.com>
 RUN \
-bash -c "echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free\" > /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free\" >> /etc/apt/sources.list ;\
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free\" >> /etc/apt/sources.list;\
-echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/debian-security/ buster/updates main contrib non-free\" >> /etc/apt/sources.list ;";\
+bash -c "echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free\" > /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-updates main contrib non-free\" >> /etc/apt/sources.list ;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-backports main contrib non-free\" >> /etc/apt/sources.list;\
+echo \"deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/debian-security/ bullseye/updates main contrib non-free\" >> /etc/apt/sources.list ;";\
 bash -c "\
 env DEBIAN_FRONTEND=noninteractive apt update && env DEBIAN_FRONTEND=noninteractive apt upgrade -y &&\
  env DEBIAN_FRONTEND=noninteractive apt install -y tzdata &&\
